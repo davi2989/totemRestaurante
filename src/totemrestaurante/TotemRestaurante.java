@@ -5,6 +5,8 @@
  */
 package totemrestaurante;
 
+import view.TelaInicialVIEW;
+
 /**
  *
  * @author aluno.saolucas
@@ -15,7 +17,9 @@ public class TotemRestaurante {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        TelaInicialVIEW tela = new TelaInicialVIEW();
+        tela.setVisible(true);
+       
     }
-    
+
 }
