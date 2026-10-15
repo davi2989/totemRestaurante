@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kyde Food</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main>
+
+    <!-- 1. INÍCIO -->
+    <section id="tela-inicio" class="tela ativa">
+      <div class="inicio">
+        <div class="inicio-emojis" aria-hidden="true">🍔 🍟 🌭 🥤</div>
+        <h1 class="logo">KYDE <span>FOOD</span></h1>
+        <p class="slogan">Seu lanche, do seu jeito.</p>
+        <button class="btn btn-amarelo btn-gigante" data-ir="cadastro">INICIAR PEDIDO</button>
+      </div>
+    </section>
+
+    <!-- 2. CADASTRO -->
+    <section id="tela-cadastro" class="tela">
+      <div class="cartao centro">
+        <h2>Cadastro</h2>
+        <label for="cad-nome">Como podemos te chamar?</label>
+        <input type="text" id="cad-nome" maxlength="45" placeholder="Digite seu nome" autocomplete="off">
+        <p id="cad-aviso" class="aviso" role="alert"></p>
+        <button id="btn-cadastrar" class="btn btn-vermelho">CADASTRAR</button>
+        <button id="btn-ir-cardapio" class="btn btn-verde" data-ir="cardapio" hidden>IR PARA O CARDÁPIO</button>
+        <button class="btn btn-cinza" data-ir="inicio">VOLTAR</button>
+      </div>
+    </section>
+
+    <!-- 3. CARDÁPIO -->
+    <section id="tela-cardapio" class="tela">
+      <header class="barra">
+        <h2 id="saudacao">Escolha seu lanche</h2>
+        <button id="btn-carrinho" class="btn btn-amarelo" data-ir="carrinho">🛒 Carrinho (0) · R$ 0,00</button>
+      </header>
+      <div id="grade-produtos" class="grade"></div>
+    </section>
+
+    <!-- 4. CARRINHO -->
+    <section id="tela-carrinho" class="tela">
+      <header class="barra">
+        <h2>Seu carrinho</h2>
+      </header>
+      <div id="lista-carrinho" class="lista"></div>
+      <footer class="rodape">
+        <button class="btn btn-amarelo" data-ir="cardapio">← VOLTAR AO CARDÁPIO</button>
+        <div class="rodape-direita">
+          <strong id="total-carrinho" class="total">R$ 0,00</strong>
+          <button id="btn-ir-pagamento" class="btn btn-verde" data-ir="pagamento">IR PARA O PAGAMENTO</button>
+        </div>
+      </footer>
+    </section>
+
+    <!-- 5. PAGAMENTO -->
+    <section id="tela-pagamento" class="tela">
+      <div class="cartao">
+        <h2>Pagamento</h2>
+        <p id="total-pagamento" class="total">R$ 0,00</p>
+
+        <fieldset>
+          <legend>Cadastrar com:</legend>
+          <div class="opcoes">
+            <label class="opcao"><input type="radio" name="doc" value="cpf" checked> CPF</label>
+            <label class="opcao"><input type="radio" name="doc" value="cnpj"> CNPJ</label>
+          </div>
+          <input type="text" id="pag-doc" inputmode="numeric" autocomplete="off">
+          <small id="pag-doc-dica"></small>
+        </fieldset>
+
+        <fieldset>
+          <legend>Forma de pagamento:</legend>
+          <select id="pag-forma">
+            <option>PIX</option>
+            <option>Cartão de Crédito</option>
+            <option>Cartão de Débito</option>
+            <option>Dinheiro</option>
+          </select>
+        </fieldset>
+
+        <fieldset>
+          <legend>Retirada:</legend>
+          <div class="opcoes">
+            <label class="opcao"><input type="radio" name="retirada" value="Comer aqui" checked> Comer aqui</label>
+            <label class="opcao"><input type="radio" name="retirada" value="Para levar"> Para levar</label>
+          </div>
+        </fieldset>
+
+        <p id="pag-aviso" class="aviso" role="alert"></p>
+        <div class="linha-botoes">
+          <button class="btn btn-cinza" data-ir="carrinho">VOLTAR</button>
+          <button id="btn-confirmar" class="btn btn-verde">CONFIRMAR PAGAMENTO</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. CONFIRMAÇÃO -->
+    <section id="tela-confirmacao" class="tela">
+      <div class="cartao centro">
+        <div class="selo">✔</div>
+        <h2 class="verde">Pedido confirmado!</h2>
+        <p>Número do seu pedido</p>
+        <p id="conf-numero" class="numero-pedido">#0000</p>
+        <ul id="conf-detalhes" class="detalhes"></ul>
+        <p class="sutil">Acompanhe a chamada no painel. Bom apetite!</p>
+        <button id="btn-novo" class="btn btn-vermelho">NOVO PEDIDO</button>
+        <small class="sutil">Esta tela volta ao início em <span id="conf-contagem">30</span>s</small>
+      </div>
+    </section>
+
+  </main>
+  <script src="js/app.js"></script>
+</body>
+</html>
